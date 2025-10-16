@@ -49,6 +49,30 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
+
+  # Core RuboCop engine (linter and code style checker)
+  gem "rubocop", require: false
+
+  # RuboCop rules specific to Rails apps
+  gem "rubocop-rails", require: false
+
+  # Extra RuboCop rules to improve performance
+  gem "rubocop-performance", require: false
+
+  # RuboCop rules for RSpec tests
+  gem "rubocop-rspec", require: false
+
+  # RuboCop rules for Capybara integration tests
+  gem "rubocop-capybara", require: false
+
+  # RuboCop rules for FactoryBot factories
+  gem "rubocop-factory_bot", require: false
+
+  # LSP server for Ruby [https://github.com/ruby-lsp/ruby-lsp]
+  gem "ruby-lsp", require: false
+
+  # Used by Ruby LSP to format Ruby code consistently
+  gem "syntax_tree", require: false
 end
 
 group :development do
