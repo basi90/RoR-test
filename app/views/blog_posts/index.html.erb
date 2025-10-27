@@ -1,0 +1,9 @@
+<h1>Blog Posts</h1>
+
+<% @blog_posts.each do |post| %>
+  <div class="blog-post">
+    <h2><%= link_to post.title, post %></h2>
+    <p><%= post.body%></p>
+    <p><em>Last edited at: <%= post.updated_at.strftime("%B %d, %Y %H:%M") %></em></p>
+  </div>
+<% end %>
