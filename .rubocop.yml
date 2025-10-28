@@ -1,13 +1,17 @@
 # Omakase Ruby styling for Rails
-inherit_gem:
-  rubocop-rails-omakase: rubocop.yml
+inherit_gem: { rubocop-rails-omakase: rubocop.yml }
 
-# ---------------------------
-# Core settings
-# ---------------------------
+# Overwrite or add rules to create your own house style
+#
+# # Use `[a, [b, c]]` not `[ a, [ b, c ] ]`
+# Layout/SpaceInsideArrayLiteralBrackets:
+#   Enabled: false
+
 AllCops:
   NewCops: enable
   TargetRubyVersion: 3.4
+
+  # Exclude generated and vendor files from linting
   Exclude:
     - 'bin/**/*'
     - 'db/schema.rb'
@@ -17,39 +21,22 @@ AllCops:
     - 'tmp/**/*'
     - 'config/environments/**/*'
 
-# ---------------------------
-# Use the new plugin system
-# (replaces old `require:` entries)
-# ---------------------------
-plugins:
+# Load additional cops
+require:
   - rubocop-rails
   - rubocop-performance
   - rubocop-rspec
   - rubocop-capybara
   - rubocop-factory_bot
 
-# ---------------------------
-# House rules (overrides)
-# ---------------------------
-
-# Lengths
+# Limits for line length
 Layout/LineLength:
   Max: 120
 
+# Limits for methods and blocks
 Metrics/MethodLength:
   Max: 20
 
 Metrics/BlockLength:
+  ExcludedMethods: ['describe', 'context', 'feature']
   Max: 25
-  AllowedMethods:
-    - describe
-    - context
-    - feature
-  AllowedPatterns:
-    - '^it$'
-
-Style/StringLiterals:
-  EnforcedStyle: double_quotes
-
-Layout/SpaceInsideArrayLiteralBrackets:
-  EnforcedStyle: space
