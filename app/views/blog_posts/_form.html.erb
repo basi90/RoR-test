@@ -19,5 +19,10 @@
         <%= form.text_area :body %>
     </div>
 
+    <div>
+        <%= form.label :posted_at %>
+        <%= form.datetime_select :posted_at, include_blank: true %>
+    </div>
+
     <%= form.button %>
 <% end %>
