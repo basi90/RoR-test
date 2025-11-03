@@ -13,3 +13,7 @@ user.update!(
   password: "password",
   password_confirmation: "password"
 )
+
+# 30.times do |time|
+#   BlogPost.create title: "Post #{time}", content: "Content #{time}, posted_at: Time.current"
+# end
