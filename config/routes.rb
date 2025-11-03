@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   devise_for :users
 
-  resources :blog_posts
+  resources :blog_posts do
+    resources :cover_images, only: [:destroy], module: :blog_posts
+  end
 
   # get "/blog_posts", to: "blog_posts#index", as: :blog_posts
 
